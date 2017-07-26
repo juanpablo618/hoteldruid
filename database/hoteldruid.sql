@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-07-2017 a las 22:51:45
+-- Tiempo de generación: 26-07-2017 a las 19:50:20
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -117,7 +117,10 @@ INSERT INTO `beniinventario` (`idbeniinventario`, `nome_bene`, `codice_bene`, `d
 (19, 'coca de 1,15 L.', '', 'Coca Cola de 1,15 litros con envase retornable', '2017-07-25 17:13:50', 'localhost', 1),
 (20, 'Vaso de fernet grande', '', 'Vaso grande de fernet preparado.', '2017-07-25 17:14:57', 'localhost', 1),
 (21, 'Whisky Criadores', '', 'medida individual de whisky nacional (criadores) ', '2017-07-25 17:16:08', 'localhost', 1),
-(22, 'Aire frio/calor de 2000 w', '', 'aire frio/calor de Cabaña Elvira. ', '2017-07-25 18:08:05', 'localhost', 1);
+(22, 'Aire frio/calor de 2000 w', '', 'aire frio/calor de Cabaña Elvira. ', '2017-07-25 18:08:05', 'localhost', 1),
+(23, 'Taladro', '', 'taladro percutor', '2017-07-26 15:12:59', 'localhost', 1),
+(24, 'Compresor', '', 'compresor de aire, azul, con diferentes puntas, es chico.', '2017-07-26 15:13:54', 'localhost', 1),
+(25, 'Almohadas', '', 'almohadas limpias y listas para entregar a los clientes.', '2017-07-26 15:38:45', 'localhost', 1);
 
 -- --------------------------------------------------------
 
@@ -226,7 +229,8 @@ CREATE TABLE `clienti` (
 --
 
 INSERT INTO `clienti` (`idclienti`, `cognome`, `nome`, `soprannome`, `sesso`, `titolo`, `lingua`, `datanascita`, `cittanascita`, `regionenascita`, `nazionenascita`, `documento`, `scadenzadoc`, `tipodoc`, `cittadoc`, `regionedoc`, `nazionedoc`, `nazionalita`, `nazione`, `regione`, `citta`, `via`, `numcivico`, `cap`, `telefono`, `telefono2`, `telefono3`, `fax`, `email`, `cod_fiscale`, `partita_iva`, `commento`, `max_num_ordine`, `idclienti_compagni`, `doc_inviati`, `datainserimento`, `hostinserimento`, `utente_inserimento`) VALUES
-(1, 'Cuello', 'Juan Pablo', NULL, 'm', NULL, 'es', '1990-03-21', 'Capital', 'Córdoba', 'Argentina', '35054822', NULL, NULL, 'Capital', 'Córdoba', 'Argentina', 'Argentina', 'Argentina', 'Córdoba', 'Capital', 'Calle Charcas', '1636', '5000', '3513220999', '4522524', NULL, NULL, 'cuello.juanpablo@gmail.com', '35054822', NULL, NULL, 1, ',', NULL, '2017-07-24 15:31:41', 'localhost', 1);
+(1, 'Cuello', 'Juan Pablo', NULL, 'm', NULL, 'es', '1990-03-21', 'Capital', 'Córdoba', 'Argentina', '35054822', NULL, NULL, 'Capital', 'Córdoba', 'Argentina', 'Argentina', 'Argentina', 'Córdoba', 'Capital', 'Calle Charcas', '1636', '5000', '3513220999', '4522524', NULL, NULL, 'cuello.juanpablo@gmail.com', '35054822', NULL, NULL, 1, ',', NULL, '2017-07-24 15:31:41', 'localhost', 1),
+(2, 'Hermida', 'Juan', 'juan', 'm', NULL, 'es', NULL, NULL, NULL, 'Argentina', NULL, NULL, NULL, NULL, NULL, NULL, 'Argentina', 'Argentina', NULL, NULL, NULL, NULL, NULL, '+54 1156450211', NULL, NULL, NULL, 'jhermi.839293@guest.booking.com', NULL, NULL, NULL, 1, ',', NULL, '2017-07-26 19:17:25', 'localhost', 1);
 
 -- --------------------------------------------------------
 
@@ -638,7 +642,7 @@ CREATE TABLE `costiprenota2017` (
 --
 
 INSERT INTO `costiprenota2017` (`idcostiprenota`, `idprenota`, `tipo`, `nome`, `valore`, `valore_perc`, `arrotonda`, `tasseperc`, `associasett`, `settimane`, `moltiplica`, `categoria`, `letto`, `numlimite`, `idntariffe`, `variazione`, `varmoltiplica`, `varnumsett`, `varperiodipermessi`, `varbeniinv`, `varappincompatibili`, `vartariffeassociate`, `vartariffeincomp`, `datainserimento`, `hostinserimento`, `utente_inserimento`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1571,6 +1575,14 @@ CREATE TABLE `prenota2017` (
   `utente_inserimento` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `prenota2017`
+--
+
+INSERT INTO `prenota2017` (`idprenota`, `idclienti`, `idappartamenti`, `iddatainizio`, `iddatafine`, `assegnazioneapp`, `app_assegnabili`, `num_persone`, `idprenota_compagna`, `tariffa`, `tariffesettimanali`, `incompatibilita`, `sconto`, `tariffa_tot`, `caparra`, `commissioni`, `tasseperc`, `pagato`, `metodo_pagamento`, `codice`, `origine`, `commento`, `conferma`, `checkin`, `checkout`, `id_anni_prec`, `datainserimento`, `hostinserimento`, `data_modifica`, `utente_inserimento`) VALUES
+(3, 2, '09', 196, 196, 'k', NULL, 4, NULL, 'tarifa de La Porteña#@&1800#@&p', '1800;1800', NULL, NULL, 1800, NULL, NULL, NULL, NULL, NULL, 'sgjk', NULL, 'booking', 'S', NULL, '2017-07-15 15:00:00', NULL, '2017-07-26 19:18:41', 'localhost', NULL, 1),
+(2, 1, '01', 207, 207, 'k', NULL, 2, NULL, 'tarifa de La Porteña#@&900#@&p', '900;900', NULL, NULL, 900, NULL, NULL, NULL, NULL, NULL, 'mqfx', NULL, 'booking', 'S', NULL, '2017-07-26 20:00:00', NULL, '2017-07-26 17:47:09', 'localhost', '2017-07-26 18:08:07', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1614,6 +1626,14 @@ CREATE TABLE `rclientiprenota2017` (
   `hostinserimento` varchar(50) DEFAULT NULL,
   `utente_inserimento` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `rclientiprenota2017`
+--
+
+INSERT INTO `rclientiprenota2017` (`idprenota`, `idclienti`, `num_ordine`, `parentela`, `datainserimento`, `hostinserimento`, `utente_inserimento`) VALUES
+(2, 1, 1, '', '2017-07-26 17:47:09', 'localhost', 1),
+(3, 2, 1, '', '2017-07-26 19:18:41', 'localhost', 1);
 
 -- --------------------------------------------------------
 
@@ -1747,10 +1767,11 @@ INSERT INTO `relinventario` (`idbeneinventario`, `idappartamento`, `idmagazzino`
 (13, '13', NULL, 5, 5, 'n', '2017-07-24 17:20:24', 'localhost', 1),
 (14, '13', NULL, 1, 1, 'n', '2017-07-24 17:21:53', 'localhost', 1),
 (16, NULL, 1, 10, 4, 'n', '2017-07-24 17:57:46', 'localhost', 1),
-(3, '06', NULL, 1, 1, 'n', '2017-07-25 16:55:38', 'localhost', 1),
-(3, '11', NULL, 0, 1, 'n', '2017-07-25 16:57:47', 'localhost', 1),
+(3, '06', NULL, 0, 1, 'n', '2017-07-25 16:55:38', 'localhost', 1),
+(3, '11', NULL, 1, 1, 'n', '2017-07-25 16:57:47', 'localhost', 1),
 (3, '04', NULL, 1, 1, 'n', '2017-07-25 17:00:15', 'localhost', 1),
-(3, '03', NULL, 0, 1, 'n', '2017-07-25 17:04:28', 'localhost', 1),
+(3, '02', NULL, 0, 1, 'n', '2017-07-26 19:36:05', 'localhost', 1),
+(3, '03', NULL, 1, 1, 'n', '2017-07-25 17:04:28', 'localhost', 1),
 (3, '13', NULL, 1, 1, 'n', '2017-07-25 17:05:48', 'localhost', 1),
 (17, NULL, 1, 5, 5, 'n', '2017-07-25 17:07:23', 'localhost', 1),
 (18, NULL, 1, 5, 5, 'n', '2017-07-25 17:13:08', 'localhost', 1),
@@ -1761,8 +1782,14 @@ INSERT INTO `relinventario` (`idbeneinventario`, `idappartamento`, `idmagazzino`
 (1, '09', NULL, 1, 0, 'n', '2017-07-25 17:49:11', 'localhost', 1),
 (1, '07', NULL, 1, 0, 'n', '2017-07-25 18:05:46', 'localhost', 1),
 (22, '13', NULL, 1, 1, 'n', '2017-07-25 18:08:19', 'localhost', 1),
-(3, '07', NULL, 0, 1, 'n', '2017-07-25 19:00:43', 'localhost', 1),
-(1, '02', NULL, 1, 0, 'n', '2017-07-25 19:00:59', 'localhost', 1);
+(3, '07', NULL, 1, 1, 'n', '2017-07-25 19:00:43', 'localhost', 1),
+(1, '02', NULL, 1, 0, 'n', '2017-07-25 19:00:59', 'localhost', 1),
+(23, NULL, 1, 2, 0, 'n', '2017-07-26 15:13:17', 'localhost', 1),
+(24, NULL, 1, 1, 0, 'n', '2017-07-26 15:14:04', 'localhost', 1),
+(25, NULL, 1, 2, 5, 'n', '2017-07-26 15:38:57', 'localhost', 1),
+(22, '03', NULL, 0, 0, 'n', '2017-07-26 15:39:16', 'localhost', 1),
+(5, NULL, 1, 10, 15, 'n', '2017-07-26 15:42:47', 'localhost', 1),
+(4, NULL, 1, 8, 15, 'n', '2017-07-26 15:43:03', 'localhost', 1);
 
 -- --------------------------------------------------------
 
@@ -2062,6 +2089,14 @@ CREATE TABLE `transazioni` (
   `ultimo_accesso` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `transazioni`
+--
+
+INSERT INTO `transazioni` (`idtransazioni`, `idsessione`, `tipo_transazione`, `anno`, `spostamenti`, `dati_transazione1`, `dati_transazione2`, `dati_transazione3`, `dati_transazione4`, `dati_transazione5`, `dati_transazione6`, `dati_transazione7`, `dati_transazione8`, `dati_transazione9`, `dati_transazione10`, `dati_transazione11`, `dati_transazione12`, `dati_transazione13`, `dati_transazione14`, `dati_transazione15`, `dati_transazione16`, `dati_transazione17`, `dati_transazione18`, `dati_transazione19`, `dati_transazione20`, `ultimo_accesso`) VALUES
+('20170726191839532100107', '', 'ins_p', 2017, '', '1', '196', '196', '09', 'tariffa1', '4', 'k', '1', '', '', '', ',', '3', '0', 'a:1:{i:1;a:1:{i:1;a:1:{i:1;s:1:\"2\";}}}', 'a:1:{i:1;a:1:{i:1;a:1:{i:1;s:1:\"1\";}}}', NULL, 'N;', ',', NULL, '2017-07-26 19:18:41'),
+('20170726192327415514108', '', 'ins_p', 2017, '', '1', '203', '203', '07', 'tariffa1', '2', 'k', '1', '', '', '', ',', '4', '0', 'a:1:{i:1;a:1:{i:1;a:1:{i:1;s:1:\"2\";}}}', 'a:1:{i:1;a:1:{i:1;a:1:{i:1;s:1:\"1\";}}}', NULL, 'N;', ',', NULL, '2017-07-26 19:23:28');
+
 -- --------------------------------------------------------
 
 --
@@ -2144,7 +2179,7 @@ CREATE TABLE `versioni` (
 
 INSERT INTO `versioni` (`idversioni`, `num_versione`) VALUES
 (1, 2.2),
-(2, 100);
+(2, 108);
 
 --
 -- Índices para tablas volcadas
